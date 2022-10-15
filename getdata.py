@@ -3,7 +3,7 @@ import json
 
 def get_data_func():
     url = 'https://api.yelp.com/v3/businesses/search'
-    key = open(r"/USERS/albertz/Desktop/Hack_Harvard_Project/yelpkey.txt").readlines()[0]
+    key = open(r"/Users/albertz/Desktop/Hack_Harvard_Project/food-tinder-harvardHack/yelpkey.txt").readlines()[0]
     headers = {
         'Authorization': 'Bearer %s' % key
     }
@@ -19,11 +19,19 @@ def get_data_func():
 
     response.json()
 
-    query = response.json()['businesses']
-    for q in query:
-        print('Restaurant: {}'.format(q['name']))
-        print('Rating: {}'.format(q['rating']))
 
+    import pandas as pd
+    query = response.json()['businesses']
+
+    results = {'Name': [], 'Rating': [], 'Pricing': []}
+    for q in query:
+        results['Name'].append(q['name'])
+        results['Rating'].append(q['rating']) 
+        try: 
+            results['Pricing'].append(len(q['price']))
+        except:
+            results['Pricing'].append(None)
+    
+    print(pd.DataFrame(results))
 
 get_data_func()
-
