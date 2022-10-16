@@ -1,0 +1,76 @@
+<MyLayout>
+    
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Image:
+            source: app.test_image
+            size: (500,500)
+            allow_stretch: False
+            keep_ratio: True
+            on_source: print(self.source)
+
+        GridLayout:
+            rows:2
+           
+            TextInput:
+                text: app.test_text
+                foreground_color: (1,1,1,1)
+                background_color: (0,0,0,0)
+            GridLayout:
+                cols:3
+
+                NoButton:
+                    text: 'No'
+                    keep_ratio: True
+                    pos_hint: {'center': 0.5}
+                    size_hint: (1, 0.3)
+
+                StartButton:
+                    text: 'Click Once to Start,\nAnother time to Quit'
+                    keep_ratio: True
+                    pos_hint: {'center': 0.5}
+                    size_hint: (1, 0.3)
+                    on_release: app.info()
+                    on_release: app.info()
+
+                YesButton:
+                    text: 'Yes'
+                    keep_ratio: True
+                    pos_hint: {'center': 0.5}
+                    size_hint: (1, 0.3)
+
+<NoButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    border: (235, 1, 2, 87)
+    canvas.before:
+        Color:
+            rgba: (210/255, 4/255, 45/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [158]
+
+<YesButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (51/255, 135/255, 67/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [158]
+
+<StartButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (30/255, 144/255, 255/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [500]
