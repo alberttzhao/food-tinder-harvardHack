@@ -26,6 +26,8 @@
                     keep_ratio: True
                     pos_hint: {'center': 0.5}
                     size_hint: (1, 0.3)
+                    on_release: app.nonextimage()
+
 
                 StartButton:
                     text: 'Click Once to Start,\nAnother time to Quit'
@@ -33,13 +35,13 @@
                     pos_hint: {'center': 0.5}
                     size_hint: (1, 0.3)
                     on_release: app.info()
-                    on_release: app.info()
 
                 YesButton:
                     text: 'Yes'
                     keep_ratio: True
                     pos_hint: {'center': 0.5}
                     size_hint: (1, 0.3)
+                    on_release: app.yesnextimage()
 
 <NoButton@Button>
     background_color: (0,0,0,0)

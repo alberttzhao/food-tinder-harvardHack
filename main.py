@@ -22,8 +22,8 @@ print(length_data)
 for i in range(length_data):
     print("This is Restaurant 1: ")
     print(data.loc[i,:])
-    right_or_left = input("Swipe Right or Left: (R for Right and L for Left") 
-    if(right_or_left == 'R'):
+    right_or_left = input("Swipe Right or Left: (R for Right and L for Left: ") 
+    if(right_or_left == 'L'):
         data = data.drop(i)
 
 

@@ -21,12 +21,28 @@ class LoopApp(App):
     test_image = StringProperty()
     test_text = StringProperty()
 
+    yeslist = []
+    nolist = []
+
     def info(self):
         selection = random.choice(restaurants)
         restaurants.remove(selection)
         self.test_image = picdict[selection]
         self.test_text = textdict[selection]
 
+    def yesnextimage(self):
+        selection = random.choice(restaurants)
+        # yeslist.append(selection)
+        restaurants.remove(selection)
+        self.test_image = picdict[selection]
+        self.test_text = textdict[selection]
+
+    def nonextimage(self):
+        selection = random.choice(restaurants)
+        # nolist.append(selection)
+        restaurants.remove(selection)
+        self.test_image = picdict[selection]
+        self.test_text = textdict[selection]
     
     def build(self):
         return MyLayout()
